@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@builder.io/dev-tools": "^1.11.44",
+    "@builder.io/dev-tools": "^1.1.24",
     "@builder.io/react": "^8.2.7",
     "@builder.io/sdk": "^6.1.2",
     "@netlify/next": "^1.4.9",
@@ -19,11 +19,13 @@
     "react": "19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
     "reactstrap": "^9.2.3",
     "swiper": "^12.0.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/node": "24.10.1",
     "eslint": "^9",
     "eslint-config-next": "15.5.3"
   }
