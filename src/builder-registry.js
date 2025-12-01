@@ -11,6 +11,7 @@ import ProductRegister from "./components/Product/ProductRegister";
 import ProductSlider from "./components/Product/ProductSlider";
 import StatamicProduct from "./components/StatamicProduct";
 import MegaMenuList from "./components/MegaMenuList";
+import BuilderSlider from './components/BuilderSlider';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -89,6 +90,69 @@ Builder.registerComponent(MegaMenuList, {
         { name: 'link', type: 'url', required: true },
         { name: 'icon', type: 'text', defaultValue: '›' },
       ],
+    },
+  ],
+});
+
+Builder.registerComponent(BuilderSlider, {
+  name: 'Builder Slider',
+  inputs: [
+    {
+      name: 'slides',
+      type: 'list',
+      subFields: [
+        {
+          name: 'image',
+          type: 'file',
+          allowedFileTypes: ['jpeg', 'png', 'webp'],
+        },
+        { name: 'title', type: 'text' },
+        { name: 'subtitle', type: 'text' },
+        { name: 'textColor', type: 'color' },
+
+        // Button
+        { name: 'buttonText', type: 'text' },
+        { name: 'buttonLink', type: 'url' },
+        { name: 'buttonBg', type: 'color' },
+        { name: 'buttonColor', type: 'color' },
+      ],
+    },
+
+    // ✔ Arrows toggle
+    { name: 'showArrows', type: 'boolean', defaultValue: true },
+
+    // ✔ Dots toggle
+    { name: 'showDots', type: 'boolean', defaultValue: true },
+
+    // ✔ Dot position
+    {
+      name: 'dotsPosition',
+      type: 'text',
+      enum: ['left', 'center', 'right'],
+      defaultValue: 'center',
+    },
+
+    // ✔ Content position (left, center, right)
+    {
+      name: 'contentPosition',
+      type: 'text',
+      enum: ['left', 'center', 'right'],
+      defaultValue: 'center',
+    },
+
+    // ✔ Slider height
+    {
+      name: 'sliderHeight',
+      type: 'text',
+      helperText: 'Example: 500px or 70vh',
+      defaultValue: '500px',
+    },
+
+    // ✔ Slider width
+    {
+      name: 'sliderWidth',
+      type: 'text',
+      defaultValue: '100%',
     },
   ],
 });
