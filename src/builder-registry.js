@@ -110,7 +110,41 @@ Builder.registerComponent(BuilderSlider, {
         { name: 'subtitle', type: 'text' },
         { name: 'textColor', type: 'color' },
 
-        // Button
+        //NEW FIELDS FOR OVERLAY
+        {
+          name: 'overlayColor',
+          type: 'color',
+          friendlyName: 'Overlay Color',
+          defaultValue: 'rgba(0,0,0,0.5)',
+        },
+        {
+          name: 'overlayOpacity',
+          type: 'number',
+          friendlyName: 'Overlay Opacity (0–1)',
+          defaultValue: 0.5,
+          min: 0,
+          max: 1,
+        },
+
+        // Existing per-slide css
+        {
+          name: 'titleCss',
+          type: 'longText',
+        },
+        {
+          name: 'subtitleCss',
+          type: 'longText',
+        },
+        {
+          name: 'buttonCss',
+          type: 'longText',
+          friendlyName: 'Button CSS (per-slide)',
+          helperText:
+            'Paste CSS declarations such as font-size: 20px; padding: 14px 30px;',
+          defaultValue: '',
+        },
+
+        // Button fields
         { name: 'buttonText', type: 'text' },
         { name: 'buttonLink', type: 'url' },
         { name: 'buttonBg', type: 'color' },
@@ -118,41 +152,54 @@ Builder.registerComponent(BuilderSlider, {
       ],
     },
 
-    // ✔ Arrows toggle
+    // Toggles
     { name: 'showArrows', type: 'boolean', defaultValue: true },
-
-    // ✔ Dots toggle
     { name: 'showDots', type: 'boolean', defaultValue: true },
+    {
+      name: 'autoplay',
+      type: 'boolean',
+      friendlyName: 'Enable Autoplay',
+      defaultValue: false,
+    },
 
-    // ✔ Dot position
+    {
+      name: 'autoplayDelay',
+      type: 'number',
+      friendlyName: 'Autoplay Delay (ms)',
+      defaultValue: 3000,
+      showIf: (options) => {
+        return String(options.autoplay) === true;
+      },
+    },
+
+    {
+      name: 'transitionSpeed',
+      type: 'number',
+      friendlyName: 'Slide Speed (ms)',
+      defaultValue: 600,
+      helperText: 'Example: 600 = 0.6 seconds',
+    },
+
     {
       name: 'dotsPosition',
       type: 'text',
       enum: ['left', 'center', 'right'],
       defaultValue: 'center',
     },
-
-    // ✔ Content position (left, center, right)
     {
       name: 'contentPosition',
       type: 'text',
       enum: ['left', 'center', 'right'],
       defaultValue: 'center',
     },
-
-    // ✔ Slider height
+    { name: 'sliderHeight', type: 'text', defaultValue: '500px' },
+    { name: 'sliderWidth', type: 'text', defaultValue: '100%' },
     {
-      name: 'sliderHeight',
+      name: 'contentWidth',
       type: 'text',
-      helperText: 'Example: 500px or 70vh',
-      defaultValue: '500px',
-    },
-
-    // ✔ Slider width
-    {
-      name: 'sliderWidth',
-      type: 'text',
-      defaultValue: '100%',
+      friendlyName: 'Content Width',
+      defaultValue: '600px',
+      helperText: 'Example: 500px, 60%, 40rem',
     },
   ],
 });
