@@ -12,6 +12,8 @@ import ProductSlider from "./components/Product/ProductSlider";
 import StatamicProduct from "./components/StatamicProduct";
 import MegaMenuList from "./components/MegaMenuList";
 import BuilderSlider from './components/BuilderSlider';
+import ServiceWheel from './components/ServiceWheel';
+import PremiumServiceWheel from './components/PremiumServiceWheel';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -200,6 +202,67 @@ Builder.registerComponent(BuilderSlider, {
       friendlyName: 'Content Width',
       defaultValue: '600px',
       helperText: 'Example: 500px, 60%, 40rem',
+    },
+  ],
+});
+
+Builder.registerComponent(ServiceWheel, {
+  name: 'Service Wheel',
+  inputs: [
+    { name: 'size', type: 'number', defaultValue: 360 },
+    { name: 'centerTitleTop', type: 'string', defaultValue: 'PREMIUM' },
+    { name: 'centerTitleBottom', type: 'string', defaultValue: 'SERVICE' },
+    {
+      name: 'segments',
+      type: 'list',
+      subFields: [
+        { name: 'color', type: 'color', defaultValue: '#2bb07f' },
+        { name: 'icon', type: 'file', allowedFileTypes: ['svg', 'png', 'jpg'] },
+        { name: 'label', type: 'text' },
+        { name: 'link', type: 'url' },
+      ],
+      defaultValue: [],
+    },
+  ],
+});
+
+Builder.registerComponent(PremiumServiceWheel, {
+  name: 'Premium Service Wheel',
+  inputs: [
+    { name: 'size', type: 'number', defaultValue: 520 },
+    { name: 'centerTop', type: 'string', defaultValue: 'PREMIUM' },
+    { name: 'centerBottom', type: 'string', defaultValue: 'SERVICE' },
+    {
+      name: 'centerTopColor',
+      type: 'color',
+      defaultValue: '#777',
+    },
+    {
+      name: 'centerBottomColor',
+      type: 'color',
+      defaultValue: '#222',
+    },
+    {
+      name: 'centerTopSize',
+      type: 'number',
+      defaultValue: 26,
+    },
+    {
+      name: 'centerBottomSize',
+      type: 'number',
+      defaultValue: 46,
+    },
+
+    {
+      name: 'items',
+      type: 'list',
+      subFields: [
+        { name: 'number', type: 'string' },
+        { name: 'title', type: 'string' },
+        { name: 'desc', type: 'string', type: 'longText' },
+        { name: 'color', type: 'color' },
+        { name: 'icon', type: 'file', allowedFileTypes: ['svg', 'png', 'jpg'] },
+      ],
     },
   ],
 });
