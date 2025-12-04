@@ -13,6 +13,8 @@ export default function PremiumServiceWheel({
   centerTopSize = 22,
   centerBottomSize = 42,
 
+  fontFamily = 'Inter, sans-serif', // ✅ NEW FONT FAMILY OPTION
+
   items = [],
 }) {
   const count = items.length || 6;
@@ -46,6 +48,7 @@ export default function PremiumServiceWheel({
         padding: '40px 0',
         display: 'flex',
         justifyContent: 'center',
+        fontFamily: fontFamily, // ✅ APPLY FONT FAMILY GLOBALLY
       }}
     >
       <style>{`
@@ -53,7 +56,6 @@ export default function PremiumServiceWheel({
           border-radius: 50%; 
           position: absolute; 
         }
-
         .ps-number {
           position: absolute;
           border-radius: 50%;
@@ -64,7 +66,6 @@ export default function PremiumServiceWheel({
           background: #fff;
           box-shadow: 0 6px 14px rgba(0,0,0,0.20);
         }
-
         .ps-card {
           width: 260px;
           padding: 18px 20px;
@@ -73,7 +74,6 @@ export default function PremiumServiceWheel({
           box-shadow: 0 6px 20px rgba(0,0,0,0.12);
           position: absolute;
         }
-
         .ps-title-ribbon {
           position: relative;
           display: inline-block;
@@ -83,7 +83,6 @@ export default function PremiumServiceWheel({
           color: #fff;
           border-radius: 6px 6px 6px 0;
         }
-
         .ps-title-ribbon::after {
           content: '';
           position: absolute;
@@ -93,9 +92,8 @@ export default function PremiumServiceWheel({
           height: 0;
           border-top: 50px solid currentColor;
           border-right: 30px solid transparent;
-          opacity: 0.8;
+          opacity: 1;
         }
-
         .ps-desc {
           margin-top: 10px;
           font-size: 14px;
@@ -105,6 +103,7 @@ export default function PremiumServiceWheel({
       `}</style>
 
       <div
+        className='ps-container'
         style={{
           position: 'relative',
           width: size,
@@ -136,6 +135,7 @@ export default function PremiumServiceWheel({
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+            fontFamily: fontFamily, // ✅ APPLY HERE
           }}
         >
           <div
@@ -169,7 +169,7 @@ export default function PremiumServiceWheel({
           const posIcon = polar(angle, radius * 0.62);
           const posCard = polar(angle, radius * 1.48);
 
-          const numberValue = it.number || i + 1; // AUTO NUMBER FIX
+          const numberValue = it.number || i + 1;
 
           const rightSide = Math.cos((angle - 90) * (Math.PI / 180)) > 0;
 
@@ -199,6 +199,7 @@ export default function PremiumServiceWheel({
                   fontSize: numberCircle * 0.42,
                   left: posNumber.x - numberCircle / 2,
                   top: posNumber.y - numberCircle / 2,
+                  fontFamily: fontFamily, // ✅ APPLY
                 }}
               >
                 {numberValue}
@@ -206,20 +207,28 @@ export default function PremiumServiceWheel({
 
               {/* CARD */}
               <div
-                className='ps-card'
+                className={`ps-card ps-card-${i + 1}`}
                 style={{
                   left: rightSide ? posCard.x : posCard.x - cardWidth,
                   top: posCard.y - cardHeight / 2,
+                  fontFamily: fontFamily, // ✅ APPLY
                 }}
               >
                 <div
                   className='ps-title-ribbon'
                   style={{ background: it.color, color: it.color }}
                 >
-                  <span style={{ color: '#fff' }}>{it.title}</span>
+                  <span style={{ color: '#fff', fontFamily: fontFamily }}>
+                    {it.title}
+                  </span>
                 </div>
 
-                <div className='ps-desc'>{it.desc}</div>
+                <div
+                  className='ps-desc'
+                  style={{ fontFamily: fontFamily }} // ✅ APPLY
+                >
+                  {it.desc}
+                </div>
               </div>
             </React.Fragment>
           );

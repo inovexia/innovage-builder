@@ -165,3 +165,11 @@ a.secondary {
     filter: invert();
   }
 }
+
+.project-card::after {
+  content: "";
+  background-color: rgba(0,0,0,0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

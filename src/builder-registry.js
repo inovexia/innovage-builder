@@ -252,6 +252,11 @@ Builder.registerComponent(PremiumServiceWheel, {
       type: 'number',
       defaultValue: 46,
     },
+    {
+      name: 'fontFamily',
+      type: 'string',
+      helperText: 'Enter font family (e.g. Inter, Poppins, Roboto)'
+    },
 
     {
       name: 'items',
