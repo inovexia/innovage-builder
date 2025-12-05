@@ -14,6 +14,8 @@ import MegaMenuList from "./components/MegaMenuList";
 import BuilderSlider from './components/BuilderSlider';
 import ServiceWheel from './components/ServiceWheel';
 import PremiumServiceWheel from './components/PremiumServiceWheel';
+import TestimonialSlider from './components/TestimonialSlider';
+import PremiumTestimonialSlider from './components/PremiumTestimonialSlider';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -269,5 +271,106 @@ Builder.registerComponent(PremiumServiceWheel, {
         { name: 'icon', type: 'file', allowedFileTypes: ['svg', 'png', 'jpg'] },
       ],
     },
+  ],
+});
+
+Builder.registerComponent(TestimonialSlider, {
+  name: 'TestimonialSlider',
+  inputs: [
+    {
+      name: 'testimonials',
+      type: 'list',
+      subFields: [
+        { name: 'avatar', type: 'file' },
+        { name: 'title', type: 'text' },
+        { name: 'description', type: 'longText' },
+        { name: 'role', type: 'text' },
+        { name: 'stars', type: 'number', defaultValue: 5 },
+      ],
+    },
+    { name: 'desktopItems', type: 'number', defaultValue: 3 },
+    { name: 'tabletItems', type: 'number', defaultValue: 2 },
+    { name: 'mobileItems', type: 'number', defaultValue: 1 },
+
+    { name: 'starColor', type: 'color', defaultValue: '#f5b50a' },
+
+    { name: 'cardShadow', type: 'boolean', defaultValue: false },
+    { name: 'cardBorder', type: 'boolean', defaultValue: false },
+    { name: 'cardBorderColor', type: 'color', defaultValue: '#ddd' },
+    { name: 'cardBorderWidth', type: 'number', defaultValue: 1 },
+
+    { name: 'titleColor', type: 'color', defaultValue: '#000' },
+    { name: 'titleFontSize', type: 'number', defaultValue: 20 },
+    { name: 'titleFontFamily', type: 'text' },
+
+    { name: 'descriptionColor', type: 'color', defaultValue: '#444' },
+    { name: 'descriptionFontSize', type: 'number', defaultValue: 16 },
+    { name: 'descriptionFontFamily', type: 'text' },
+
+    { name: 'roleColor', type: 'color', defaultValue: '#777' },
+    { name: 'roleFontSize', type: 'number', defaultValue: 14 },
+    { name: 'roleFontFamily', type: 'text' },
+
+    { name: 'arrowColor', type: 'color', defaultValue: '#000' },
+    { name: 'autoplay', type: 'boolean', defaultValue: false },
+    { name: 'autoplayDelay', type: 'number', defaultValue: 3000 },
+  ],
+});
+
+Builder.registerComponent(PremiumTestimonialSlider, {
+  name: 'Premium Testimonial Slider',
+  inputs: [
+    {
+      name: 'testimonials',
+      type: 'list',
+      subFields: [
+        {
+          name: 'image',
+          type: 'file',
+          allowedFileTypes: ['jpeg', 'jpg', 'png', 'webp'],
+        },
+        { name: 'text', type: 'text' },
+        { name: 'name', type: 'text' },
+        { name: 'role', type: 'text' },
+        { name: 'stars', type: 'number', defaultValue: 5 },
+      ],
+    },
+
+    { name: 'desktopItems', type: 'number', defaultValue: 1 },
+    { name: 'tabletItems', type: 'number', defaultValue: 1 },
+    { name: 'mobileItems', type: 'number', defaultValue: 1 },
+
+    { name: 'showArrows', type: 'boolean', defaultValue: true },
+    { name: 'arrowColor', type: 'color' },
+
+    { name: 'autoplay', type: 'boolean' },
+    { name: 'autoplayDelay', type: 'number' },
+
+    { name: 'cardBackground', type: 'color' },
+    { name: 'cardPadding', type: 'number' },
+    { name: 'cardBorderRadius', type: 'number' },
+
+    { name: 'cardShadow', type: 'boolean' },
+    { name: 'cardBorder', type: 'boolean' },
+    { name: 'cardBorderColor', type: 'color' },
+    { name: 'cardBorderWidth', type: 'number' },
+
+    { name: 'quoteColor', type: 'color' },
+    { name: 'quoteFontSize', type: 'number' },
+
+    { name: 'textColor', type: 'color' },
+    { name: 'textFontSize', type: 'number' },
+    { name: 'textFontFamily', type: 'text' },
+
+    { name: 'nameColor', type: 'color' },
+    { name: 'nameFontSize', type: 'number' },
+    { name: 'nameFontFamily', type: 'text' },
+
+    { name: 'roleColor', type: 'color' },
+    { name: 'roleFontSize', type: 'number' },
+    { name: 'roleFontFamily', type: 'text' },
+
+    { name: 'starColor', type: 'color' },
+    { name: 'starSize', type: 'number' },
   ],
 });
