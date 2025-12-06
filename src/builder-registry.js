@@ -16,6 +16,7 @@ import ServiceWheel from './components/ServiceWheel';
 import PremiumServiceWheel from './components/PremiumServiceWheel';
 import TestimonialSlider from './components/TestimonialSlider';
 import PremiumTestimonialSlider from './components/PremiumTestimonialSlider';
+import FAQAccordion from './components/FAQAccordion';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -372,5 +373,59 @@ Builder.registerComponent(PremiumTestimonialSlider, {
 
     { name: 'starColor', type: 'color' },
     { name: 'starSize', type: 'number' },
+  ],
+});
+
+Builder.registerComponent(FAQAccordion, {
+  name: 'FAQ Accordion',
+  inputs: [
+    {
+      name: 'items',
+      type: 'list',
+      required: true,
+      subFields: [
+        { name: 'title', type: 'text', defaultValue: 'Your FAQ Title' },
+
+        {
+          name: 'icon',
+          type: 'file',
+          allowedFileTypes: ['png', 'jpg', 'svg'],
+        },
+
+        {
+          name: 'answer',
+          type: 'richText',
+          defaultValue: `<p>This is a sample answer with <strong>bold text</strong> and bullet points:</p>
+<ul>
+  <li>Point one</li>
+  <li>Point two</li>
+</ul>`,
+        },
+      ],
+    },
+
+    // Title styling
+    { name: 'titleFontSize', type: 'number', defaultValue: 20 },
+    { name: 'titleFontFamily', type: 'text', defaultValue: 'Arial' },
+    { name: 'titleFontWeight', type: 'text', defaultValue: '600' },
+
+    // Answer styling
+    { name: 'answerFontSize', type: 'number', defaultValue: 16 },
+    { name: 'answerFontFamily', type: 'text', defaultValue: 'Arial' },
+    { name: 'answerFontWeight', type: 'text', defaultValue: '400' },
+
+    // Arrows
+    {
+      name: 'arrowDownIcon',
+      type: 'file',
+      allowedFileTypes: ['png', 'jpg', 'svg'],
+      defaultValue: '/down.svg',
+    },
+    {
+      name: 'arrowUpIcon',
+      type: 'file',
+      allowedFileTypes: ['png', 'jpg', 'svg'],
+      defaultValue: '/up.svg',
+    },
   ],
 });
