@@ -558,7 +558,7 @@ Builder.registerComponent(ServicesTab, {
       ],
     },
 
-    // ✅ ALL TYPOGRAPHY MUST BE INSIDE "styles" OBJECT
+    //ALL TYPOGRAPHY MUST BE INSIDE "styles" OBJECT
     {
       name: 'tabTitleTypography',
       type: 'css',
