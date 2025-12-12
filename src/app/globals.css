@@ -1,8 +1,9 @@
+
+@import url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css');
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
-@import url('https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css');
 
 
 @media (prefers-color-scheme: dark) {

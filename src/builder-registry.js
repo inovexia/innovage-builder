@@ -17,6 +17,8 @@ import PremiumServiceWheel from './components/PremiumServiceWheel';
 import TestimonialSlider from './components/TestimonialSlider';
 import PremiumTestimonialSlider from './components/PremiumTestimonialSlider';
 import FAQAccordion from './components/FAQAccordion';
+import HomeSlider from './components/HomeSlider';
+import ServicesTab from './components/ServicesTab';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -426,6 +428,152 @@ Builder.registerComponent(FAQAccordion, {
       type: 'file',
       allowedFileTypes: ['png', 'jpg', 'svg'],
       defaultValue: '/up.svg',
+    },
+  ],
+});
+
+Builder.registerComponent(HomeSlider, {
+  name: 'Home Slider',
+  inputs: [
+    /* Slides Array */
+    {
+      name: 'slides',
+      type: 'list',
+      subFields: [
+        { name: 'title', type: 'string', defaultValue: 'Your Title' },
+        {
+          name: 'description',
+          type: 'string',
+          defaultValue: 'Your description here...',
+        },
+        {
+          name: 'image',
+          type: 'file',
+          allowedFileTypes: ['jpeg', 'png', 'webp'],
+        },
+        { name: 'button1Text', type: 'string', defaultValue: 'Shop Now' },
+        { name: 'button1Link', type: 'url' },
+        { name: 'button2Text', type: 'string', defaultValue: 'Learn More' },
+        { name: 'button2Link', type: 'url' },
+      ],
+    },
+
+    /* SLIDER SETTINGS */
+    { name: 'autoplay', type: 'boolean', defaultValue: true },
+    { name: 'speed', type: 'number', defaultValue: 600 },
+    { name: 'delay', type: 'number', defaultValue: 3000 },
+    { name: 'showDots', type: 'boolean', defaultValue: true },
+    { name: 'showArrows', type: 'boolean', defaultValue: true },
+
+    /* --------------------
+       DOT STYLE SETTINGS
+    ---------------------*/
+    {
+      name: 'dotsColor',
+      type: 'color',
+      defaultValue: '#cccccc',
+    },
+    {
+      name: 'dotsActiveColor',
+      type: 'color',
+      defaultValue: '#0E73C0',
+    },
+    {
+      name: 'dotsSize',
+      type: 'number',
+      defaultValue: 10,
+    },
+    {
+      name: 'dotsAlign',
+      type: 'text',
+      enum: ['left', 'center', 'right'],
+      defaultValue: 'center',
+    },
+
+    /* DESKTOP TYPOGRAPHY */
+    { name: 'titleSize', type: 'string', defaultValue: '48px' },
+    { name: 'titleWeight', type: 'string', defaultValue: '700' },
+    { name: 'titleColor', type: 'color', defaultValue: '#000000' },
+    { name: 'titleFamily', type: 'string', defaultValue: 'inherit' },
+
+    { name: 'descriptionSize', type: 'string', defaultValue: '18px' },
+    { name: 'descriptionWeight', type: 'string', defaultValue: '400' },
+    { name: 'descriptionColor', type: 'color', defaultValue: '#666666' },
+    { name: 'descriptionFamily', type: 'string', defaultValue: 'inherit' },
+
+    /* Button 1 */
+    { name: 'btn1TextColor', type: 'color', defaultValue: '#ffffff' },
+    { name: 'btn1BgColor', type: 'color', defaultValue: '#007bff' },
+    { name: 'btn1BorderColor', type: 'color', defaultValue: '#007bff' },
+    { name: 'btn1FontSize', type: 'string', defaultValue: '15px' },
+    { name: 'btn1FontWeight', type: 'string', defaultValue: '500' },
+    { name: 'btn1Radius', type: 'string', defaultValue: '30px' },
+
+    /* Button 2 */
+    { name: 'btn2TextColor', type: 'color', defaultValue: '#007bff' },
+    { name: 'btn2BgColor', type: 'color', defaultValue: 'transparent' },
+    { name: 'btn2BorderColor', type: 'color', defaultValue: '#007bff' },
+    { name: 'btn2FontSize', type: 'string', defaultValue: '15px' },
+    { name: 'btn2FontWeight', type: 'string', defaultValue: '500' },
+    { name: 'btn2Radius', type: 'string', defaultValue: '30px' },
+
+    /* MOBILE TYPOGRAPHY */
+    { name: 'titleSizeMobile', type: 'string', defaultValue: '28px' },
+    { name: 'descriptionSizeMobile', type: 'string', defaultValue: '15px' },
+    { name: 'btn1FontSizeMobile', type: 'string', defaultValue: '14px' },
+    { name: 'btn2FontSizeMobile', type: 'string', defaultValue: '14px' },
+
+    /* IMAGE */
+    { name: 'imageWidth', type: 'string', defaultValue: '420px' },
+    { name: 'imageHeight', type: 'string', defaultValue: '420px' },
+  ],
+});
+
+Builder.registerComponent(ServicesTab, {
+  name: 'Services Tab',
+  inputs: [
+    {
+      name: 'tabs',
+      type: 'list',
+      subFields: [
+        { name: 'title', type: 'string', required: true },
+
+        {
+          name: 'image',
+          type: 'file',
+          allowedFileTypes: ['jpeg', 'jpg', 'png', 'webp'],
+        },
+
+        {
+          name: 'heading',
+          type: 'richText',
+        },
+
+        {
+          name: 'description',
+          type: 'richText',
+        },
+
+        { name: 'buttonText', type: 'string' },
+      ],
+    },
+
+    // ✅ ALL TYPOGRAPHY MUST BE INSIDE "styles" OBJECT
+    {
+      name: 'tabTitleTypography',
+      type: 'css',
+    },
+    {
+      name: 'headingTypography',
+      type: 'css',
+    },
+    {
+      name: 'descriptionTypography',
+      type: 'css',
+    },
+    {
+      name: 'buttonTypography',
+      type: 'css',
     },
   ],
 });
