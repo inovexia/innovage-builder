@@ -130,7 +130,7 @@ export default function ServicesTab({
           gap: '40px',
           marginTop: '50px',
           paddingTop: '50px',
-          paddingBottom: '50px',
+          paddingBottom: '75px',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',

@@ -4,6 +4,7 @@ import './globals.css';
 import '../builder-registry';
 import '../styles/custom.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

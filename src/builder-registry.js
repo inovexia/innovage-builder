@@ -19,6 +19,7 @@ import PremiumTestimonialSlider from './components/PremiumTestimonialSlider';
 import FAQAccordion from './components/FAQAccordion';
 import HomeSlider from './components/HomeSlider';
 import ServicesTab from './components/ServicesTab';
+import TechnologySlider from './components/TechnologySlider';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -577,3 +578,165 @@ Builder.registerComponent(ServicesTab, {
     },
   ],
 });
+
+Builder.registerComponent(TechnologySlider, {
+  name: 'Technology Slider',
+  inputs: [
+    {
+      name: 'slides',
+      type: 'list',
+      required: true,
+      helperText:
+        'Add one or more slides with icon, title, description, and link.',
+      subFields: [
+        {
+          name: 'icon',
+          type: 'file',
+          helperText: 'Upload an icon image (SVG/PNG/JPG).',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          required: true,
+          helperText: 'Enter the title text for the slide.',
+        },
+        {
+          name: 'description',
+          type: 'string',
+          helperText: 'Enter a short description for the slide.',
+        },
+        {
+          name: 'linkText',
+          type: 'string',
+          helperText: 'Text for the link button (optional).',
+        },
+        {
+          name: 'linkUrl',
+          type: 'string',
+          helperText: 'URL for the link button (optional).',
+        },
+      ],
+    },
+
+    {
+      name: 'cardStyle',
+      type: 'object',
+      helperText: 'Customize the card background, padding, and border radius.',
+      subFields: [
+        {
+          name: 'background',
+          type: 'string',
+          defaultValue: '#f6fbff',
+          helperText: 'Card background color.',
+        },
+        {
+          name: 'padding',
+          type: 'string',
+          defaultValue: '30px 20px',
+          helperText: 'Padding inside the card.',
+        },
+        {
+          name: 'borderRadius',
+          type: 'string',
+          defaultValue: '12px',
+          helperText: 'Rounded corners for the card.',
+        },
+      ],
+    },
+
+    {
+      name: 'titleStyle',
+      type: 'object',
+      helperText: 'Customize the title font and color.',
+      subFields: [
+        { name: 'fontSize', type: 'string', helperText: 'Example: 20px' },
+        {
+          name: 'fontFamily',
+          type: 'string',
+          helperText: 'Example: Arial, sans-serif',
+        },
+        {
+          name: 'fontWeight',
+          type: 'string',
+          helperText: 'Example: 400 (normal), 700 (bold)',
+        },
+        { name: 'lineHeight', type: 'string', helperText: 'Example: 1.5' },
+        { name: 'color', type: 'string', helperText: 'Example: #333333' },
+      ],
+    },
+
+    {
+      name: 'descStyle',
+      type: 'object',
+      helperText: 'Customize the description text style.',
+      subFields: [
+        { name: 'fontSize', type: 'string', helperText: 'Example: 16px' },
+        {
+          name: 'fontFamily',
+          type: 'string',
+          helperText: 'Example: Arial, sans-serif',
+        },
+        { name: 'lineHeight', type: 'string', helperText: 'Example: 1.5' },
+        { name: 'color', type: 'string', helperText: 'Example: #666666' },
+        {
+          name: 'charactor_limit',
+          type: 'string',
+          helperText: 'Enter a short description (max 100 characters).',
+        },
+      ],
+    },
+
+    {
+      name: 'linkStyle',
+      type: 'object',
+      helperText: 'Customize the link text style.',
+      subFields: [
+        { name: 'fontSize', type: 'string', helperText: 'Example: 14px' },
+        {
+          name: 'fontFamily',
+          type: 'string',
+          helperText: 'Example: Arial, sans-serif',
+        },
+        { name: 'color', type: 'string', helperText: 'Example: #007bff' },
+        {
+          name: 'textDecoration',
+          type: 'string',
+          helperText: 'Example: underline or none',
+        },
+      ],
+    },
+
+    {
+      name: 'imageWidth',
+      type: 'string', // change from number to string
+      defaultValue: '60px',
+      helperText: 'Set the image width (px, %, auto, etc.)',
+    },
+    {
+      name: 'imageHeight',
+      type: 'string',
+      defaultValue: 'auto',
+      helperText: 'Set the image height (px, %, auto, etc.)',
+    },
+
+    {
+      name: 'slidesPerView',
+      type: 'number',
+      defaultValue: 4,
+      helperText: 'Number of slides visible per view.',
+    },
+    {
+      name: 'spaceBetween',
+      type: 'number',
+      defaultValue: 24,
+      helperText: 'Space (px) between slides.',
+    },
+    {
+      name: 'arrowColor',
+      type: 'string',
+      defaultValue: '#000',
+      helperText: 'Color of the navigation arrows.',
+    },
+  ],
+});
+
