@@ -11,5 +11,4 @@ const nextConfig = BuilderDevTools()({
   // Turbopack config must not exist
   turbopack: undefined,
 });
-
 export default nextConfig;
